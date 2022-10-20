@@ -1,0 +1,36 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Happiness inequality in rich countries over time ",
+    "title":"Happiness inequality in economically wealthy countries over time",
+    "width":800,
+    "height":390,
+    "background":"#AED3D2",
+    "data": {"url": "happiness-inequality.csv"},
+    "selection": {
+        "country_highlight": {
+        "type": "multi",
+        "fields": ["Entity"],
+        "bind": "legend"
+        }
+        },
+    "mark": {
+      "type": "line",
+      "point":true,
+      "tooltip":true
+      
+    },
+    "encoding": {
+      "x": {"timeUnit": "year", "field": "Year","title":"Year"},
+      "y": { "field": "Standard deviation of life satisfaction", "type": "quantitative"},
+      "color": {"field": "Entity", "type": "nominal"}
+
+    },
+    "opacity": {
+        "condition": {"selection": "country_highlight", "value": 1.2},
+        "value": 1.1
+        }
+    
+   
+
+  }
+  
